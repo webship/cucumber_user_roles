@@ -1,0 +1,26 @@
+{
+  "name": "drupal/cucumber_user_roles",
+  "type": "drupal-module",
+  "description": "The user role for the tools and components that will be used for testing.",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Webship",
+      "homepage": "http://webship.org",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/cucumber_user_roles",
+    "source": "http://cgit.drupalcode.org/cucumber_user_roles"
+  },
+  "repositories": {
+    "drupal": {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  },
+  "require": {
+    "drupal/core": "~10.0"
+  }
+}
