@@ -1,0 +1,9 @@
+cucumber_user_roles.settings:
+  path: "/admin/config/development/cucumber-user-roles/settings"
+  defaults:
+    _title: "Cucumber User Roles"
+    _form: \Drupal\cucumber_user_roles\Form\UserRolesSettings
+  requirements:
+    _permission: "administer Cucumber User Roles settings"
+  options:
+    _admin_route: TRUE

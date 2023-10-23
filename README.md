@@ -5,6 +5,7 @@ The Cucumber User Roles module is a list of user roles that gives the administra
 Includes the following Roles:
 
 - Tester
+- Designer
 - Developer
 - Analyst
 - Coordinator

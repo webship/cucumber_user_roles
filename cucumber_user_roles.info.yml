@@ -1,5 +1,6 @@
-name: 'Cucumber User Rroles'
+name: 'Cucumber User Roles'
 type: module
 description: 'A list of user roles '
 package: Webship
+configure: cucumber_user_roles.settings
 core_version_requirement: ~10

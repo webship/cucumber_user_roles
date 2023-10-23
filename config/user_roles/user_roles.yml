@@ -1,0 +1,32 @@
+user_roles:
+  display_name: "User Roles"
+  description: "Install user roles that have separate permissions based on the role rank and the roles can be modified later."
+  options:
+    tester:
+      title: "Tester"
+      description: "The role of the tester is to write features for projects, products, and components, implement testing, and ensure that all testing is done correctly."
+      source_config: "cucumber_user_role_tester"
+    developer:
+      title: "Developer"
+      description: "System developer"
+      source_config: "cucumber_user_role_developer"
+    designer:
+      title: "Designer"
+      description: "System designer"
+      source_config: "cucumber_user_role_designer"
+    analyst:
+      title: "Analyst"
+      description: "System analyst"
+      source_config: "cucumber_user_role_analyst"
+    coordinator:
+      title: "Coordinator"
+      description: "System Coordinator"
+      source_config: "cucumber_user_role_coordinator"
+    product_owner:
+      title: "Product Owner"
+      description: "System supervisor"
+      source_config: "cucumber_user_role_product_owner"
+    admin:
+      title: "Admin"
+      description: "System manager"
+      source_config: "cucumber_user_role_admin"

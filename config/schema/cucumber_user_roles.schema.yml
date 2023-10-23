@@ -1,0 +1,23 @@
+cucumber_user_roles.settings:
+  type: mapping
+  label: Settings
+  mapping:
+    tester:
+      type: boolean
+      label: "Tester"
+    designer:
+      type: boolean
+      label: "Designer"
+    developer:
+      type: boolean
+      label: "Developer"
+    analyst:
+      type: boolean
+      label: "Analyst"
+    coordinator:
+      type: boolean
+      label: "Coordinator"
+    product_owner:
+      type: boolean
+      label: "Product Owner"
+    
