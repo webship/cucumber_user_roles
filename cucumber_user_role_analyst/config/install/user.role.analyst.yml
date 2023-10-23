@@ -1,0 +1,6 @@
+langcode: en
+status: true
+id: analyst
+label: Analyst
+is_admin: false
+permissions: { }

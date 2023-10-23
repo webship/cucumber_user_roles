@@ -1,0 +1,5 @@
+name: 'Cucumber User Role Developer'
+type: module
+description: 'A Developer user role'
+core_version_requirement: ~10
+package: 'Webship'

@@ -1,0 +1,5 @@
+name: 'Cucumber User Role Analyst'
+type: module
+description: 'An analyst user role'
+core_version_requirement: ~10
+package: 'Webship'

@@ -1,0 +1,6 @@
+langcode: en
+status: true
+id: coordinator
+label: Coordinator
+is_admin: false
+permissions: { }

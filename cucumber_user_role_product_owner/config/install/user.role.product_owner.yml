@@ -1,0 +1,6 @@
+langcode: en
+status: true
+id: product_owner
+label: 'Product Owner'
+is_admin: false
+permissions: { }
