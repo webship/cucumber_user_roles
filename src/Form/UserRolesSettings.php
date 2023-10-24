@@ -79,7 +79,7 @@ class UserRolesSettings extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    $user_roles_file = DRUPAL_ROOT . '/' . \Drupal::service('extension.list.profile')->getPath('cucumber') . '/config/install_tasks/user_roles.yml';
+    $user_roles_file = DRUPAL_ROOT . '/modules/contrib/cucumber_user_roles/config/install_tasks/user_roles.yml';
 
     $user_roles_content = file_get_contents($user_roles_file);
     $user_roles = (array) Yaml::parse($user_roles_content);
@@ -107,7 +107,7 @@ class UserRolesSettings extends FormBase {
     $config = $this->config('cucumber_user_roles.settings');
 
     // Cucumber User Roles.
-    $user_roles_file = DRUPAL_ROOT . '/' . \Drupal::service('extension.list.profile')->getPath('cucumber') . '/config/install_tasks/user_roles.yml';
+    $user_roles_file = DRUPAL_ROOT . '/modules/contrib/cucumber_user_roles/config/install_tasks/user_roles.yml';
 
     $user_roles_content = file_get_contents($user_roles_file);
     $user_roles = (array) Yaml::parse($user_roles_content);
