@@ -75,30 +75,6 @@ class UserRolesSettings extends FormBase {
     return $form;
   }
 
-   /**
-   * {@inheritdoc}
-   */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    $user_roles_file = DRUPAL_ROOT . '/modules/contrib/cucumber_user_roles/config/install_tasks/user_roles.yml';
-
-    $user_roles_content = file_get_contents($user_roles_file);
-    $user_roles = (array) Yaml::parse($user_roles_content);
-
-    $user_roles_selected = 0;
-    $user_roles_options = $user_roles['user_roles']['options'];
-
-    foreach ($user_roles_options as $user_roles_key => $user_roles_info) {
-      if ($form_state->getValue($user_roles_key) == 1) {
-        $user_roles_selected += 1;
-      }
-    }
-
-    if($user_roles_selected == 0) {
-      $form_state->setErrorByName('user_roles', $this->t('Please select at least one user roles'));
-      $form_state->setRebuild();
-    }
-  }
-
   /**
    * {@inheritdoc}
    */
@@ -107,7 +83,7 @@ class UserRolesSettings extends FormBase {
     $config = $this->config('cucumber_user_roles.settings');
 
     // Cucumber User Roles.
-    $user_roles_file = DRUPAL_ROOT . '/modules/contrib/cucumber_user_roles/config/install_tasks/user_roles.yml';
+    $user_roles_file = DRUPAL_ROOT . '/modules/contrib/cucumber_user_roles/config/user_roles/user_roles.yml';
 
     $user_roles_content = file_get_contents($user_roles_file);
     $user_roles = (array) Yaml::parse($user_roles_content);
