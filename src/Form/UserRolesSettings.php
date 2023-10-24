@@ -7,7 +7,7 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
-class UserRolesSettings extends FormBase {
+class UserRolesSettings extends ConfigFormBase {
 
   /**
    * {@inheritdoc}
@@ -89,14 +89,16 @@ class UserRolesSettings extends FormBase {
     $user_roles = (array) Yaml::parse($user_roles_content);
 
     $user_roles_options = $user_roles['user_roles']['options'];
-
+    
     foreach ($user_roles_options as $user_roles_key => $user_roles_info) {
      
+     
       if ($user_roles_key != "admin" && $form_state->getValue($user_roles_key) == 1 && (bool)$config->get($user_roles_key) == false) {
+
         $installer = \Drupal::service('module_installer');
         $installer->install([$user_roles_info['source_config']]);
 
-        $config->set($user_roles_key, $form_state->getValue($user_roles_key));
+        $config->set($user_roles_key, true);
       }
     }
 
