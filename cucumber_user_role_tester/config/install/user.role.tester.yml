@@ -1,6 +1,14 @@
 langcode: en
 status: true
+dependencies:
+  config:
+    - dashboards.dashboard.tester_dashboard
+  module:
+    - dashboards
+    - filter
 id: tester
 label: Tester
-is_admin: false
-permissions: { }
+weight: -7
+is_admin: null
+permissions:
+  - 'can view tester_dashboard dashboard'
