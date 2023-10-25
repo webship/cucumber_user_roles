@@ -92,17 +92,13 @@ class UserRolesSettings extends ConfigFormBase {
     
     foreach ($user_roles_options as $user_roles_key => $user_roles_info) {
      
-     
       if ($user_roles_key != "admin" && $form_state->getValue($user_roles_key) == 1 && (bool)$config->get($user_roles_key) == false) {
 
         $installer = \Drupal::service('module_installer');
         $installer->install([$user_roles_info['source_config']]);
-
-        $config->set($user_roles_key, true);
       }
     }
 
-    $config->save();
     parent::submitForm($form, $form_state);
   }
 }
