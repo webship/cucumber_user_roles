@@ -1,6 +1,13 @@
 langcode: en
 status: true
+dependencies:
+  config:
+    - dashboards.dashboard.product_owner_dashboard
+  module:
+    - dashboards
+    - filter
 id: product_owner
-label: 'Product Owner'
+label: Product Owner
 is_admin: false
-permissions: { }
+permissions:
+  - 'can view product_owner_dashboard dashboard'

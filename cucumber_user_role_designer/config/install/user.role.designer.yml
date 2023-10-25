@@ -1,6 +1,13 @@
 langcode: en
 status: true
+dependencies:
+  config:
+    - dashboards.dashboard.designer_dashboard
+  module:
+    - dashboards
+    - filter
 id: designer
 label: Designer
 is_admin: false
-permissions: { }
+permissions:
+  - 'can view designer_dashboard dashboard'

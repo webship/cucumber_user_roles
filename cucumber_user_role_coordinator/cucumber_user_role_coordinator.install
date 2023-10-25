@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Install functions for the Cucumber User Role Coordinator module.
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function cucumber_user_role_coordinator_install() {
+  \Drupal::configFactory()->getEditable('cucumber_user_roles.settings')->set('coordinator', TRUE)->save(TRUE);
+ 
+  \Drupal::configFactory()->getEditable('user_redirect.settings')->set('login.coordinator.redirect_url', '/dashboard/coordinator_dashboard')->save(TRUE);
+
+  \Drupal::configFactory()->getEditable('user_redirect.settings')->set('logout.coordinator.redirect_url', '/user/login')->save(TRUE);
+}

@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Install functions for the Cucumber User Role Analyst module.
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function cucumber_user_role_analyst_install() {
+  \Drupal::configFactory()->getEditable('cucumber_user_roles.settings')->set('analyst', TRUE)->save(TRUE);
+ 
+  \Drupal::configFactory()->getEditable('user_redirect.settings')->set('login.analyst.redirect_url', '/dashboard/analyst_dashboard')->save(TRUE);
+
+  \Drupal::configFactory()->getEditable('user_redirect.settings')->set('logout.analyst.redirect_url', '/user/login')->save(TRUE);
+}

@@ -1,6 +1,13 @@
 langcode: en
 status: true
+dependencies:
+  config:
+    - dashboards.dashboard.developer_dashboard
+  module:
+    - dashboards
+    - filter
 id: developer
 label: Developer
 is_admin: false
-permissions: { }
+permissions:
+  - 'can view developer_dashboard dashboard'

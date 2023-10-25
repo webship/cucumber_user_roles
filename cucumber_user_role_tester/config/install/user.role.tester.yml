@@ -8,7 +8,6 @@ dependencies:
     - filter
 id: tester
 label: Tester
-weight: -7
-is_admin: null
+is_admin: false
 permissions:
   - 'can view tester_dashboard dashboard'

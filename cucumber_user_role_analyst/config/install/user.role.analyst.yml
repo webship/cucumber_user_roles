@@ -1,6 +1,13 @@
 langcode: en
 status: true
+dependencies:
+  config:
+    - dashboards.dashboard.analyst_dashboard
+  module:
+    - dashboards
+    - filter
 id: analyst
 label: Analyst
 is_admin: false
-permissions: { }
+permissions:
+  - 'can view analyst_dashboard dashboard'

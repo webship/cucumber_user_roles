@@ -1,6 +1,13 @@
 langcode: en
 status: true
+dependencies:
+  config:
+    - dashboards.dashboard.coordinator_dashboard
+  module:
+    - dashboards
+    - filter
 id: coordinator
 label: Coordinator
 is_admin: false
-permissions: { }
+permissions:
+  - 'can view coordinator_dashboard dashboard'
