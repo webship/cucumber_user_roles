@@ -21,7 +21,6 @@
     }
   },
   "require": {
-    "drupal/core": "~10.0",
-    "vardot/module-installer-factory": "~1.0"
+    "drupal/core": "~10.0"
   }
 }
