@@ -1,0 +1,3 @@
+id: tester
+permissions:
+   - 'access features page'

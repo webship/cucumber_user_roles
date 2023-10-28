@@ -1,0 +1,8 @@
+id: develper
+permissions:
+   - 'access content'
+   - 'access features page'
+   - 'access projects page'
+   - 'can view developer_dashboard dashboard'
+   - 'create feature media'
+   - 'edit any feature media'

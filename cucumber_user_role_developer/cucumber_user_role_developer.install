@@ -5,6 +5,8 @@
  * Install functions for the Cucumber User Role Developer module.
  */
 
+ use Vardot\Installer\ModuleInstallerFactory;
+
 /**
  * Implements hook_enable().
  */
@@ -14,4 +16,17 @@ function cucumber_user_role_developer_install() {
   \Drupal::configFactory()->getEditable('user_redirect.settings')->set('login.developer.redirect_url', '/dashboard/developer_dashboard')->save(TRUE);
 
   \Drupal::configFactory()->getEditable('user_redirect.settings')->set('logout.developer.redirect_url', '/user/login')->save(TRUE);
+
+  $moduleHandler = \Drupal::service('module_handler');
+  if ($moduleHandler->moduleExists('cucumber_projects')) {
+    ModuleInstallerFactory::addPermissions('cucumber_projects', 'config/managed/developer');
+  }
+
+  if ($moduleHandler->moduleExists('cucumber_products')) {
+    ModuleInstallerFactory::addPermissions('cucumber_products', 'config/managed/developer');
+  }
+
+  if ($moduleHandler->moduleExists('cucumber_components')) {
+    ModuleInstallerFactory::addPermissions('cucumber_components', 'config/managed/developer');
+  }
 }
