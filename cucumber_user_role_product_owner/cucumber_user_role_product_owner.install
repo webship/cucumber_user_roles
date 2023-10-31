@@ -16,17 +16,4 @@ function cucumber_user_role_product_owner_install() {
   \Drupal::configFactory()->getEditable('user_redirect.settings')->set('login.product_owner.redirect_url', '/dashboard/product_owner_dashboard')->save(TRUE);
 
   \Drupal::configFactory()->getEditable('user_redirect.settings')->set('logout.product_owner.redirect_url', '/user/login')->save(TRUE);
-
-  $moduleHandler = \Drupal::service('module_handler');
-  if ($moduleHandler->moduleExists('cucumber_projects')) {
-    ModuleInstallerFactory::addPermissions('cucumber_projects', 'config/managed/product_owner');
-  }
-
-  if ($moduleHandler->moduleExists('cucumber_products')) {
-    ModuleInstallerFactory::addPermissions('cucumber_products', 'config/managed/product_owner');
-  }
-
-  if ($moduleHandler->moduleExists('cucumber_components')) {
-    ModuleInstallerFactory::addPermissions('cucumber_components', 'config/managed/product_owner');
-  }
 }

@@ -16,17 +16,4 @@ function cucumber_user_role_analyst_install() {
   \Drupal::configFactory()->getEditable('user_redirect.settings')->set('login.analyst.redirect_url', '/dashboard/analyst_dashboard')->save(TRUE);
 
   \Drupal::configFactory()->getEditable('user_redirect.settings')->set('logout.analyst.redirect_url', '/user/login')->save(TRUE);
-
-  $moduleHandler = \Drupal::service('module_handler');
-  if ($moduleHandler->moduleExists('cucumber_projects')) {
-    ModuleInstallerFactory::addPermissions('cucumber_projects', 'config/managed/analyst');
-  }
-
-  if ($moduleHandler->moduleExists('cucumber_products')) {
-    ModuleInstallerFactory::addPermissions('cucumber_products', 'config/managed/analyst');
-  }
-
-  if ($moduleHandler->moduleExists('cucumber_components')) {
-    ModuleInstallerFactory::addPermissions('cucumber_components', 'config/managed/analyst');
-  }
 }

@@ -16,17 +16,4 @@ function cucumber_user_role_designer_install() {
   \Drupal::configFactory()->getEditable('user_redirect.settings')->set('login.designer.redirect_url', '/dashboard/designer_dashboard')->save(TRUE);
 
   \Drupal::configFactory()->getEditable('user_redirect.settings')->set('logout.designer.redirect_url', '/user/login')->save(TRUE);
-
-  $moduleHandler = \Drupal::service('module_handler');
-  if ($moduleHandler->moduleExists('cucumber_projects')) {
-    ModuleInstallerFactory::addPermissions('cucumber_projects', 'config/managed/designer');
-  }
-
-  if ($moduleHandler->moduleExists('cucumber_products')) {
-    ModuleInstallerFactory::addPermissions('cucumber_products', 'config/managed/designer');
-  }
-
-  if ($moduleHandler->moduleExists('cucumber_components')) {
-    ModuleInstallerFactory::addPermissions('cucumber_components', 'config/managed/designer');
-  }
 }
