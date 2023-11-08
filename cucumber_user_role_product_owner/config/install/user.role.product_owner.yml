@@ -8,6 +8,7 @@ dependencies:
     - filter
 id: product_owner
 label: Product Owner
+weight: -3
 is_admin: false
 permissions:
   - 'can view product_owner_dashboard dashboard'

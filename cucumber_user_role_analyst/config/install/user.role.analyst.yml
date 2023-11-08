@@ -8,6 +8,7 @@ dependencies:
     - filter
 id: analyst
 label: Analyst
+weight: -5
 is_admin: false
 permissions:
   - 'can view analyst_dashboard dashboard'

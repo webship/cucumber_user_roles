@@ -8,6 +8,7 @@ dependencies:
     - filter
 id: coordinator
 label: Coordinator
+weight: -4
 is_admin: false
 permissions:
   - 'can view coordinator_dashboard dashboard'
