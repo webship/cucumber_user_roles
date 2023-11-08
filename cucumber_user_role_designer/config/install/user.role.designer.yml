@@ -8,7 +8,7 @@ dependencies:
     - filter
 id: designer
 label: Designer
-weight: -7
+weight: -6
 is_admin: false
 permissions:
   - 'can view designer_dashboard dashboard'

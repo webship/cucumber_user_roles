@@ -8,7 +8,7 @@ dependencies:
     - filter
 id: developer
 label: Developer
-weight: -6
+weight: -7
 is_admin: false
 permissions:
   - 'can view developer_dashboard dashboard'
