@@ -1,6 +1,8 @@
-name: 'Cucumber User Roles'
+name: Cucumber User Roles
+description: Provides a list of user roles, empowering administrators to selectively assign roles to staff members involved in system operations. Each role is associated with specific tasks, a dedicated dashboard, and distinct permissions within the product testing workflow.
 type: module
-description: 'A list of user roles '
-package: Webship
+core_version_requirement: ~10.2.0
+package: Cucumber
 configure: cucumber_user_roles.settings
-core_version_requirement: ~10
+dependencies:
+  - cucumber_core:cucumber_core

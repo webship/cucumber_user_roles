@@ -1,5 +1,7 @@
-name: 'Cucumber User Role Developer'
+name: Cucumber User Role Developer
+description: A Developer user role
 type: module
-description: 'A Developer user role'
-core_version_requirement: ~10
-package: 'Webship'
+core_version_requirement: ~10.2.0
+package: Cucumber User Roles
+dependencies:
+  - cucumber_core:cucumber_core

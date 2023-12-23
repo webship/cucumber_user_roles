@@ -5,14 +5,12 @@
  * Install functions for the Cucumber User Role Tester module.
  */
 
- use Vardot\Installer\ModuleInstallerFactory;
-
 /**
  * Implements hook_enable().
  */
 function cucumber_user_role_tester_install() {
   \Drupal::configFactory()->getEditable('cucumber_user_roles.settings')->set('tester', TRUE)->save(TRUE);
- 
+
   \Drupal::configFactory()->getEditable('user_redirect.settings')->set('login.tester.redirect_url', '/dashboard/tester_dashboard')->save(TRUE);
 
   \Drupal::configFactory()->getEditable('user_redirect.settings')->set('logout.tester.redirect_url', '/user/login')->save(TRUE);

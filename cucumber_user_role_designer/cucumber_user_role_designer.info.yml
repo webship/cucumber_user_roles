@@ -1,5 +1,7 @@
-name: 'Cucumber User Role Designer'
+name: Cucumber User Role Designer
+description: A designer user role
 type: module
-description: 'A designer user role'
-core_version_requirement: ~10
-package: 'Webship'
+core_version_requirement: ~10.2.0
+package: Cucumber User Roles
+dependencies:
+  - cucumber_core:cucumber_core

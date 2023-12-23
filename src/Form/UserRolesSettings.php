@@ -4,7 +4,6 @@ namespace Drupal\cucumber_user_roles\Form;
 
 use Symfony\Component\Yaml\Yaml;
 use Drupal\Core\Form\ConfigFormBase;
-use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 class UserRolesSettings extends ConfigFormBase {
@@ -19,12 +18,11 @@ class UserRolesSettings extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  protected function getEditableConfigNames()
-  {
-      return ['cucumber_user_roles.settings'];
+  protected function getEditableConfigNames() {
+    return ['cucumber_user_roles.settings'];
   }
 
-  public function buildForm(array $form, FormStateInterface $form_state) {    
+  public function buildForm(array $form, FormStateInterface $form_state) {
 
     $config = $this->config('cucumber_user_roles.settings');
 
@@ -51,7 +49,7 @@ class UserRolesSettings extends ConfigFormBase {
       $user_roles_options = $user_roles['user_roles']['options'];
 
       foreach ($user_roles_options as $user_roles_key => $user_roles_info) {
-        
+
         $form['user_roles'][$user_roles_key] = [
           '#type' => 'checkbox',
           '#title' => $user_roles_info['title'],
@@ -71,7 +69,7 @@ class UserRolesSettings extends ConfigFormBase {
       '#type' => 'actions',
       '#weight' => 5,
     ];
-    
+
     return $form;
   }
 
@@ -89,10 +87,10 @@ class UserRolesSettings extends ConfigFormBase {
     $user_roles = (array) Yaml::parse($user_roles_content);
 
     $user_roles_options = $user_roles['user_roles']['options'];
-    
+
     foreach ($user_roles_options as $user_roles_key => $user_roles_info) {
-     
-      if ($user_roles_key != "admin" && $form_state->getValue($user_roles_key) == 1 && (bool)$config->get($user_roles_key) == false) {
+
+      if ($user_roles_key != "admin" && $form_state->getValue($user_roles_key) == 1 && (bool) $config->get($user_roles_key) == FALSE) {
 
         $installer = \Drupal::service('module_installer');
         $installer->install([$user_roles_info['source_config']]);
@@ -101,4 +99,5 @@ class UserRolesSettings extends ConfigFormBase {
 
     parent::submitForm($form, $form_state);
   }
+
 }
