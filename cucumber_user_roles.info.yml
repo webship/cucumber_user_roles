@@ -5,4 +5,5 @@ core_version_requirement: ~10.2.0
 package: Cucumber
 configure: cucumber_user_roles.settings
 dependencies:
+  - user_redirect:user_redirect
   - cucumber_core:cucumber_core
