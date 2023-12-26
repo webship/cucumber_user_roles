@@ -1,0 +1,12 @@
+name: Cucumber Tester User Role Default
+description: A recipe to manage default configs for the Cucumber Tester User Role.
+type: Testing
+config:
+  actions:
+    cucumber_user_roles.settings:
+      simple_config_update:
+        tester: true
+    user_redirect.settings:
+      simple_config_update:
+        login.tester.redirect_url: '/dashboard/tester_dashboard'
+        logout.tester.redirect_url: '/user/login'

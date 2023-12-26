@@ -1,0 +1,12 @@
+name: Cucumber Coordinator User Role Default
+description: A recipe to manage default configs for the Cucumber Coordinator User Role.
+type: Testing
+config:
+  actions:
+    cucumber_user_roles.settings:
+      simple_config_update:
+        coordinator: true
+    user_redirect.settings:
+      simple_config_update:
+        login.coordinator.redirect_url: '/dashboard/coordinator_dashboard'
+        logout.coordinator.redirect_url: '/user/login'

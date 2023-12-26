@@ -1,0 +1,12 @@
+name: Cucumber Product Owner User Role Default
+description: A recipe to manage default configs for the Cucumber Product Owner User Role.
+type: Testing
+config:
+  actions:
+    cucumber_user_roles.settings:
+      simple_config_update:
+        product_owner: true
+    user_redirect.settings:
+      simple_config_update:
+        login.product_owner.redirect_url: '/dashboard/product_owner_dashboard'
+        logout.product_owner.redirect_url: '/user/login'

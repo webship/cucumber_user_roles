@@ -5,13 +5,15 @@
  * Install functions for the Cucumber User Role Product Owner module.
  */
 
+use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Recipe\RecipeRunner;
+
 /**
  * Implements hook_enable().
  */
 function cucumber_user_role_product_owner_install() {
-  \Drupal::configFactory()->getEditable('cucumber_user_roles.settings')->set('product_owner', TRUE)->save(TRUE);
 
-  \Drupal::configFactory()->getEditable('user_redirect.settings')->set('login.product_owner.redirect_url', '/dashboard/product_owner_dashboard')->save(TRUE);
+  $default_recipe = Recipe::createFromDirectory(__DIR__ . '/recipes/default');
+  RecipeRunner::processRecipe($default_recipe);
 
-  \Drupal::configFactory()->getEditable('user_redirect.settings')->set('logout.product_owner.redirect_url', '/user/login')->save(TRUE);
 }

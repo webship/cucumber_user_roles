@@ -1,7 +1,8 @@
-name: Cucumber User Role Coordinator
-description: A coordinator user role
+name: Coordinator
+description: Cucumber User Role Coordinator
 type: module
 core_version_requirement: ~10.2.0
 package: Cucumber User Roles
 dependencies:
   - cucumber_core:cucumber_core
+  - cucumber_user_roles:cucumber_user_roles

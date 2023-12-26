@@ -1,0 +1,12 @@
+name: Cucumber Designer User Role Default
+description: A recipe to manage default configs for the Cucumber Designer User Role.
+type: Testing
+config:
+  actions:
+    cucumber_user_roles.settings:
+      simple_config_update:
+        designer: true
+    user_redirect.settings:
+      simple_config_update:
+        login.designer.redirect_url: '/dashboard/designer_dashboard'
+        logout.designer.redirect_url: '/user/login'

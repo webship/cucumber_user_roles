@@ -5,13 +5,15 @@
  * Install functions for the Cucumber User Role Designer module.
  */
 
+use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Recipe\RecipeRunner;
+
 /**
  * Implements hook_enable().
  */
 function cucumber_user_role_designer_install() {
-  \Drupal::configFactory()->getEditable('cucumber_user_roles.settings')->set('designer', TRUE)->save(TRUE);
 
-  \Drupal::configFactory()->getEditable('user_redirect.settings')->set('login.designer.redirect_url', '/dashboard/designer_dashboard')->save(TRUE);
+  $default_recipe = Recipe::createFromDirectory(__DIR__ . '/recipes/default');
+  RecipeRunner::processRecipe($default_recipe);
 
-  \Drupal::configFactory()->getEditable('user_redirect.settings')->set('logout.designer.redirect_url', '/user/login')->save(TRUE);
 }

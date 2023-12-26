@@ -5,13 +5,15 @@
  * Install functions for the Cucumber User Role Tester module.
  */
 
+use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Recipe\RecipeRunner;
+
 /**
  * Implements hook_enable().
  */
 function cucumber_user_role_tester_install() {
-  \Drupal::configFactory()->getEditable('cucumber_user_roles.settings')->set('tester', TRUE)->save(TRUE);
 
-  \Drupal::configFactory()->getEditable('user_redirect.settings')->set('login.tester.redirect_url', '/dashboard/tester_dashboard')->save(TRUE);
+  $default_recipe = Recipe::createFromDirectory(__DIR__ . '/recipes/default');
+  RecipeRunner::processRecipe($default_recipe);
 
-  \Drupal::configFactory()->getEditable('user_redirect.settings')->set('logout.tester.redirect_url', '/user/login')->save(TRUE);
 }
