@@ -5,9 +5,6 @@ cucumber_user_roles.settings:
     tester:
       type: boolean
       label: "Tester"
-    designer:
-      type: boolean
-      label: "Designer"
     developer:
       type: boolean
       label: "Developer"
@@ -17,6 +14,9 @@ cucumber_user_roles.settings:
     coordinator:
       type: boolean
       label: "Coordinator"
+    designer:
+      type: boolean
+      label: "System designer"
     product_owner:
       type: boolean
       label: "Product Owner"

@@ -26,8 +26,8 @@ class UserRolesSettings extends ConfigFormBase {
 
     $config = $this->config('cucumber_user_roles.settings');
 
-    // Cucumber User Roles.
-    $user_roles_file = DRUPAL_ROOT . '/modules/contrib/cucumber_user_roles/config/user_roles/user_roles.yml';
+    $module_path = \Drupal::service('module_handler')->getModule('cucumber_user_roles')->getPath();
+    $user_roles_file = $module_path . 'src/Assets/user_roles/user_roles.yml';
 
     if (file_exists($user_roles_file)) {
       $user_roles_content = file_get_contents($user_roles_file);
@@ -80,8 +80,8 @@ class UserRolesSettings extends ConfigFormBase {
 
     $config = $this->config('cucumber_user_roles.settings');
 
-    // Cucumber User Roles.
-    $user_roles_file = DRUPAL_ROOT . '/modules/contrib/cucumber_user_roles/config/user_roles/user_roles.yml';
+    $module_path = \Drupal::service('module_handler')->getModule('cucumber_user_roles')->getPath();
+    $user_roles_file = $module_path . 'src/Assets/user_roles/user_roles.yml';
 
     $user_roles_content = file_get_contents($user_roles_file);
     $user_roles = (array) Yaml::parse($user_roles_content);

@@ -2,8 +2,7 @@ name: Cucumber User Roles
 description: Provides a list of user roles, empowering administrators to selectively assign roles to staff members involved in system operations. Each role is associated with specific tasks, a dedicated dashboard, and distinct permissions within the product testing workflow.
 type: module
 core_version_requirement: ~10.2.0
-package: Cucumber
+package: Cucumber User Roles
 configure: cucumber_user_roles.settings
 dependencies:
-  - user_redirect:user_redirect
   - cucumber_core:cucumber_core

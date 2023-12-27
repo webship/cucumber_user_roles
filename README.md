@@ -5,8 +5,8 @@ Provides a list of user roles, empowering administrators to selectively assign r
 ### The included roles are:
 
 * Tester
-* Designer
 * Developer
 * Analyst
 * Coordinator
+* Designer
 * Product Owner
