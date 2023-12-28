@@ -4,6 +4,6 @@ cucumber_user_roles.settings:
     _title: "Cucumber User Roles"
     _form: \Drupal\cucumber_user_roles\Form\UserRolesSettings
   requirements:
-    _permission: "administer Cucumber User Roles settings"
+    _permission: "administer cucumber user roles settings"
   options:
     _admin_route: TRUE

@@ -1,5 +1,5 @@
-name: Tester
-description: Cucumber User Role Tester
+name: Cucumber User Role Tester
+description: Ensure that the testing is carried out as per the defined standards and procedures, Analyze the testing results, and submit the report to the development team.
 type: module
 core_version_requirement: ~10.2.0
 package: Cucumber User Roles

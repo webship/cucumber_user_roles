@@ -1,0 +1,3 @@
+administer cucumber user roles settings:
+  title: 'Administer cucumber user roles settings'
+  description: 'Be able administer activating extra ready user roles with their dashboards'

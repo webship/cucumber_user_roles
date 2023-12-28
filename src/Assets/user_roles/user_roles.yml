@@ -4,29 +4,29 @@ user_roles:
   options:
     tester:
       title: Tester
-      description: The role of the tester is to write features for projects, products, and components, implement testing, and ensure that all testing is done correctly.
+      description: Ensure that the testing is carried out as per the defined standards and procedures, Analyze the testing results, and submit the report to the development team.
       source_config: cucumber_user_role_tester
     developer:
       title: Developer
-      description: System developer
+      description: Write and perform productive code, and keep and update existing rules.
       source_config: cucumber_user_role_developer
     analyst:
       title: Analyst
-      description: System analyst
+      description: Analyze the defects and bugs to identify what is causing them, and keep software and systems documentation up to date.
       source_config: cucumber_user_role_analyst
     coordinator:
       title: Coordinator
-      description: System Coordinator
+      description: Day-to-day coordination of test activities, Executing work distribution, Establishing plans, and Monitoring progress.
       source_config: cucumber_user_role_coordinator
     designer:
       title: Designer
-      description: System designer
+      description: Analyze research findings to inform design directions. Evaluate new system design ideas or concepts. Provide on-the-job training to direct reports and junior teams.
       source_config: cucumber_user_role_designer
     product_owner:
       title: Product Owner
-      description: System supervisor
+      description: Managing the product backlog and prioritizing them based on changing requirements. Overseeing all stages of product creation including design and development.
       source_config: cucumber_user_role_product_owner
     admin:
       title: Admin
-      description: System manager
+      description: Can log in to all projects, view them and make changes, add/remove users to/from a company, as well as assign roles and read-only.
       source_config: cucumber_user_role_admin

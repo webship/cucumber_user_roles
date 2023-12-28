@@ -1,5 +1,5 @@
-name: Analyst
-description: Cucumber User Role Analyst
+name: Cucumber User Role Analyst
+description: Which analyze the defects and bugs to identify what is causing them, and keep software and systems documentation up to date.
 type: module
 core_version_requirement: ~10.2.0
 package: Cucumber User Roles

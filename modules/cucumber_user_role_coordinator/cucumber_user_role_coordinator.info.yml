@@ -1,5 +1,5 @@
-name: Coordinator
-description: Cucumber User Role Coordinator
+name: Cucumber User Role Coordinator
+description: Which carry on Day-to-day coordination of test activities, Executing work distribution, Establishing plans, and Monitoring progress.
 type: module
 core_version_requirement: ~10.2.0
 package: Cucumber User Roles

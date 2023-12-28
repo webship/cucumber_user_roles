@@ -1,5 +1,5 @@
-name: Designer
-description: Cucumber User Role Designer
+name: Cucumber User Role Designer
+description: Analyze research findings to inform design directions. Evaluate new system design ideas or concepts. Provide on-the-job training to direct reports and junior teams.
 type: module
 core_version_requirement: ~10.2.0
 package: Cucumber User Roles

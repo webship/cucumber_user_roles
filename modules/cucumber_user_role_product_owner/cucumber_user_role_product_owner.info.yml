@@ -1,5 +1,5 @@
-name: Product Owner
-description: Cucumber User Role Product Owner
+name: Cucumber User Role Product Owner
+description: Managing the product backlog and prioritizing them based on changing requirements. Overseeing all stages of product creation including design and development.
 type: module
 core_version_requirement: ~10.2.0
 package: Cucumber User Roles

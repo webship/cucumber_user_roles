@@ -1,5 +1,5 @@
-name: Developer
-description: Cucumber User Role Developer
+name: Cucumber User Role Developer
+description: Write and perform productive code, and keep and update existing rules.
 type: module
 core_version_requirement: ~10.2.0
 package: Cucumber User Roles

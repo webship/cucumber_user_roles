@@ -1,12 +1,12 @@
 {
   "name": "drupal/cucumber_user_roles",
   "type": "drupal-module",
-  "description": "The user role for the tools and components that will be used for testing.",
+  "description": "Provides a list of user roles, empowering administrators to selectively assign roles to staff members involved in system operations. Each role is associated with specific tasks, a dedicated dashboard, and distinct permissions within the product testing workflow.",
   "minimum-stability": "dev",
   "authors": [
     {
-      "name": "Webship",
-      "homepage": "http://webship.org",
+      "name": "webship.co",
+      "homepage": "http://webship.co",
       "role": "Maintainer"
     }
   ],
