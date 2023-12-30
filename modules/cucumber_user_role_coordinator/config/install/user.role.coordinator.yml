@@ -12,3 +12,7 @@ weight: -4
 is_admin: false
 permissions:
   - 'can view coordinator_dashboard dashboard'
+  - 'access content'
+  - 'access features page'
+  - 'create feature media'
+  - 'edit any feature media'

@@ -10,3 +10,6 @@ config:
       simple_config_update:
         login.tester.redirect_url: '/dashboard/tester_dashboard'
         logout.tester.redirect_url: '/user/login'
+    user.role.admin:
+      grantPermissions:
+        - 'can view tester_dashboard dashboard'

@@ -10,3 +10,6 @@ config:
       simple_config_update:
         login.coordinator.redirect_url: '/dashboard/coordinator_dashboard'
         logout.coordinator.redirect_url: '/user/login'
+    user.role.admin:
+      grantPermissions:
+        - 'can view coordinator_dashboard dashboard'

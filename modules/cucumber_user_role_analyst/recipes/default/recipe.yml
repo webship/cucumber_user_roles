@@ -10,3 +10,6 @@ config:
       simple_config_update:
         login.analyst.redirect_url: '/dashboard/analyst_dashboard'
         logout.analyst.redirect_url: '/user/login'
+    user.role.admin:
+      grantPermissions:
+        - 'can view analyst_dashboard dashboard'

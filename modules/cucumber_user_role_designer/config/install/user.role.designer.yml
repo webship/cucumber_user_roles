@@ -12,3 +12,5 @@ weight: -6
 is_admin: false
 permissions:
   - 'can view designer_dashboard dashboard'
+  - 'access content'
+  - 'access features page'

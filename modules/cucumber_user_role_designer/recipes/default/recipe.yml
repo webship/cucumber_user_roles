@@ -10,3 +10,6 @@ config:
       simple_config_update:
         login.designer.redirect_url: '/dashboard/designer_dashboard'
         logout.designer.redirect_url: '/user/login'
+    user.role.admin:
+      grantPermissions:
+        - 'can view designer_dashboard dashboard'

@@ -12,3 +12,5 @@ weight: -5
 is_admin: false
 permissions:
   - 'can view analyst_dashboard dashboard'
+  - 'access content'
+  - 'access features page'

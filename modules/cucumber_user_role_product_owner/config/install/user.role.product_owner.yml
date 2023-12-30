@@ -12,3 +12,7 @@ weight: -3
 is_admin: false
 permissions:
   - 'can view product_owner_dashboard dashboard'
+  - 'access content'
+  - 'access features page'
+  - 'create feature media'
+  - 'edit any feature media'
