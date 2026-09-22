@@ -20,3 +20,6 @@ cucumber_user_roles.settings:
     product_owner:
       type: boolean
       label: "Product Owner"
+    admin:
+      type: boolean
+      label: "Admin"

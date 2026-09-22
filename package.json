@@ -4,14 +4,16 @@
   "description": "Provides a list of user roles, empowering administrators to selectively assign roles to staff members involved in system operations. Each role is associated with specific tasks, a dedicated dashboard, and distinct permissions within the product testing workflow.",
   "license": "GPL-2.0",
   "engines": {
-    "yarn": ">= 1.6",
-    "node": ">= 18.0"
+    "yarn": ">= 4.9.3",
+    "node": ">= 20.0"
   },
   "keywords": [
     "Drupal",
     "Cucumber",
+    "Cucumber User Roles",
     "Users",
-    "User roles"
+    "User roles",
+    "Automated Testing"
   ],
   "author": "Webship.co",
   "scripts": {
@@ -19,11 +21,12 @@
     "phpcbf": "phpcbf --standard=./.phpcs.xml .",
     "lint:js": "node ./node_modules/eslint/bin/eslint.js .",
     "lint:css": "stylelint \"**/*.css\"",
-    "lint:yaml": "node ./node_modules/eslint/bin/eslint.js --ext .yml ."
+    "lint:yaml": "node ./node_modules/eslint/bin/eslint.js --ext .yml .",
+    "test": "cucumber-js --config cucumber.js",
+    "test:headed": "HEADLESS=false cucumber-js --config cucumber.js",
+    "test:chromium": "BROWSER=chromium cucumber-js --config cucumber.js"
   },
-  "dependencies": {  },
   "devDependencies": {
-    "webship-js": "~1",
     "eslint": "~8",
     "eslint-config-airbnb-base": "~15",
     "eslint-config-prettier": "~8",
@@ -54,7 +57,8 @@
     "terser-webpack-plugin": "~5",
     "underscore": "~1",
     "webpack": "~5",
-    "webpack-cli": "~5"
+    "webpack-cli": "~5",
+    "webship-js": "~2.0"
   },
   "browserslist": [
     "last 2 Chrome major versions",
@@ -66,5 +70,9 @@
     "last 1 ChromeAndroid version",
     "last 1 Samsung version",
     "Firefox ESR"
-  ]
+  ],
+  "packageManager": "yarn@4.9.3",
+  "resolutions": {
+    "@cucumber/cucumber": "10.0.1"
+  }
 }

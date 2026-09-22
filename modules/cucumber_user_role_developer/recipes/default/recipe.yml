@@ -6,10 +6,6 @@ config:
     cucumber_user_roles.settings:
       simple_config_update:
         developer: true
-    user_redirect.settings:
-      simple_config_update:
-        login.developer.redirect_url: '/dashboard/developer_dashboard'
-        logout.developer.redirect_url: '/user/login'
     user.role.admin:
       grantPermissions:
         - 'can view developer_dashboard dashboard'

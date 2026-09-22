@@ -7,13 +7,30 @@
 
 use Drupal\Core\Recipe\Recipe;
 use Drupal\Core\Recipe\RecipeRunner;
+use Drupal\cucumber_user_roles\UserRoleRedirect;
 
 /**
- * Implements hook_enable().
+ * Implements hook_install().
  */
 function cucumber_user_role_developer_install() {
 
   $default_recipe = Recipe::createFromDirectory(__DIR__ . '/recipes/default');
   RecipeRunner::processRecipe($default_recipe);
+
+  // The login / logout redirect paths are deliberately not set by the recipe
+  // above: they live in "user_redirect.settings", a config object that the
+  // contributed User Redirect module ships without a config schema, which
+  // makes it unusable from a config action on a site with assertions enabled.
+  // @see \Drupal\cucumber_user_roles\UserRoleRedirect
+  UserRoleRedirect::set('developer', '/dashboard/developer_dashboard', '/user/login');
+
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function cucumber_user_role_developer_uninstall() {
+
+  UserRoleRedirect::remove('developer');
 
 }

@@ -21,8 +21,8 @@
     }
   },
   "require": {
-    "drupal/core": "~11.0.0",
-    "drupal/webpatches": "11.0.x-dev",
+    "drupal/core": "^11.4 || ^12",
+    "drupal/webpatches": "~11.0",
     "drupal/cucumber_core": "11.0.x-dev"
   }
 }
