@@ -35,8 +35,10 @@ Given(
       );
     }
     await this.page.goto(`${this.parameters.launchUrl}/user/login`);
-    await this.page.getByLabel('Username').fill(username);
-    await this.page.getByLabel('Password').fill(password);
+    // View Password, installed through Web Admin, adds a "Show password"
+    // button labelled after the field, so target the login inputs by id.
+    await this.page.locator('#edit-name').fill(username);
+    await this.page.locator('#edit-pass').fill(password);
     await this.page.locator('input[value="Log in"]').click();
     await this.page.waitForLoadState('networkidle');
   },
