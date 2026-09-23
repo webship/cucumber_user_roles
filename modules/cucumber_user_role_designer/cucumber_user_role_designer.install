@@ -12,15 +12,19 @@ use Drupal\cucumber_user_roles\UserRoleRedirect;
 /**
  * Implements hook_install().
  */
-function cucumber_user_role_designer_install() {
+function cucumber_user_role_designer_install($is_syncing) {
 
-  $default_recipe = Recipe::createFromDirectory(__DIR__ . '/recipes/default');
-  RecipeRunner::processRecipe($default_recipe);
+  // When the module is installed on its own, apply its default recipe. When
+  // the default recipe installs the module, the recipe is already applied.
+  if (!$is_syncing) {
+    RecipeRunner::processRecipe(Recipe::createFromDirectory(__DIR__ . '/recipes/default'));
+  }
 
   // The login / logout redirect paths are deliberately not set by the recipe
   // above: they live in "user_redirect.settings", a config object that the
   // contributed User Redirect module ships without a config schema, which
   // makes it unusable from a config action on a site with assertions enabled.
+  // Setting them is idempotent, so it runs on both install paths.
   // @see \Drupal\cucumber_user_roles\UserRoleRedirect
   UserRoleRedirect::set('designer', '/dashboard/designer_dashboard', '/user/login');
 

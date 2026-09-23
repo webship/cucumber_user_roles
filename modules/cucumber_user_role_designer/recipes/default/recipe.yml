@@ -1,11 +1,34 @@
-name: Cucumber Designer User Role Default
-description: A recipe to manage default configs for the Cucumber Designer User Role.
-type: Testing
+name: 'Cucumber Designer User Role Default'
+description: 'Gives a site the Cucumber Designer user role and its Designer dashboard, turns the role on in the Cucumber User Roles settings, and lets the Admin role see that dashboard.'
+type: install
+install:
+  # The parent module owns "cucumber_user_roles.settings", which the config
+  # action below changes. Recipes validate that the extension behind a config
+  # action is installed by the recipe itself, not only by the modules it pulls
+  # in, so name it here. This module depends on it either way.
+  - cucumber_user_roles
+  - cucumber_user_role_designer
 config:
+  # Only create what a site does not have yet. Re-applying this recipe on a
+  # site that already has this configuration is a no-op.
+  strict: false
+  import:
+    # A recipe installs modules with the configuration installer in syncing
+    # mode, which creates simple configuration but no configuration entities
+    # (see \Drupal\Core\Recipe\RecipeRunner::installModules()). Import the
+    # role and its dashboard here, so applying this recipe leaves the same
+    # configuration behind as installing the module does.
+    cucumber_user_role_designer: '*'
   actions:
     cucumber_user_roles.settings:
       simple_config_update:
         designer: true
     user.role.admin:
+      # The Cucumber distribution ships an "admin" role. On a plain Drupal
+      # site that role does not exist yet, so create it before granting
+      # anything to it.
+      createIfNotExists:
+        label: Admin
+        is_admin: false
       grantPermissions:
         - 'can view designer_dashboard dashboard'

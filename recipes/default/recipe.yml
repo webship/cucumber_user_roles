@@ -1,0 +1,16 @@
+name: 'Cucumber User Roles'
+description: 'Installs the Cucumber User Roles module, which lists the user roles of the Cucumber Automated Functional Acceptance Testing Management system and lets an administrator turn each one on. The roles themselves, their dashboards and their login redirects come from the Cucumber User Role sub-modules, each with its own default recipe.'
+type: install
+install:
+  - cucumber_user_roles
+config:
+  # Only create what a site does not have yet. Re-applying this recipe on a
+  # site that already has this configuration is a no-op.
+  strict: false
+  import:
+    # A recipe installs modules with the configuration installer in syncing
+    # mode, which creates simple configuration but no configuration entities
+    # (see \Drupal\Core\Recipe\RecipeRunner::installModules()). Import the
+    # settings here, so applying this recipe leaves the same configuration
+    # behind as `drush pm:install cucumber_user_roles`.
+    cucumber_user_roles: '*'
