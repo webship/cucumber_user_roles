@@ -58,7 +58,7 @@
     "underscore": "~1",
     "webpack": "~5",
     "webpack-cli": "~5",
-    "webship-js": "~2.0"
+    "webship-js": "^2.0.6"
   },
   "browserslist": [
     "last 2 Chrome major versions",
