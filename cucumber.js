@@ -34,6 +34,24 @@ module.exports = {
           password: 'dD.123123ddd',
           roles: ['tester'],
         },
+        Developer: {
+          username: 'developer_user',
+          email: 'developer_user@example.test',
+          password: 'dD.123123ddd',
+          roles: ['developer'],
+        },
+        Analyst: {
+          username: 'analyst_user',
+          email: 'analyst_user@example.test',
+          password: 'dD.123123ddd',
+          roles: ['analyst'],
+        },
+        'Product Owner': {
+          username: 'product_owner_user',
+          email: 'product_owner_user@example.test',
+          password: 'dD.123123ddd',
+          roles: ['product_owner'],
+        },
         'Authenticated user': {
           username: 'authenticated_user',
           email: 'authenticated_user@example.test',

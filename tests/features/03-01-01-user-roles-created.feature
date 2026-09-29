@@ -23,10 +23,11 @@ Feature: The six user roles are created with their permissions
      And the element "#edit-tester-create-feature-media" with the attribute "checked" and the value "checked" should exist
      And the element "#edit-tester-edit-any-feature-media" with the attribute "checked" and the value "checked" should exist
 
-  Scenario: The Developer role may view its own dashboard but not create features
+  Scenario: The Developer role may view its own dashboard and change features, but not create them
     When I navigate to "/admin/people/permissions/developer"
     Then the element "#edit-developer-access-content" with the attribute "checked" and the value "checked" should exist
      And the element "#edit-developer-can-view-developer-dashboard-dashboard" with the attribute "checked" and the value "checked" should exist
+     And the element "#edit-developer-edit-any-feature-media" with the attribute "checked" and the value "checked" should exist
      And the "#edit-developer-create-feature-media" checkbox should not be checked
 
   Scenario: Every role has its own dashboard

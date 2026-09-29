@@ -1,5 +1,5 @@
 name: 'Cucumber Analyst User Role Default'
-description: 'Gives a site the Cucumber Analyst user role and its Analyst dashboard, turns the role on in the Cucumber User Roles settings, and lets the Admin role see that dashboard.'
+description: 'Gives a site the Cucumber Analyst user role and its Analyst dashboard, turns the role on in the Cucumber User Roles settings, lets the Analyst role work on features in the automated testing workflow, and lets the Admin role see that dashboard.'
 type: install
 install:
   # The parent module owns "cucumber_user_roles.settings", which the config
@@ -32,3 +32,34 @@ config:
         is_admin: false
       grantPermissions:
         - 'can view analyst_dashboard dashboard'
+    user.role.analyst:
+      # An analyst writes features down and hands them over: the role creates
+      # a feature, edits its own ones and moves them between Draft and To Do.
+      #
+      # Granted here, after the role is imported and once the Gherkin text
+      # format, the automated testing workflow and the feature directories
+      # of Cucumber Core exist: a permission has to exist to be granted.
+      grantPermissions:
+        # The features, with their Gherkin scripts.
+        - 'view media'
+        - 'view own unpublished media'
+        - 'view latest version'
+        - 'use text format gherkin'
+        - 'create feature media'
+        - 'edit own feature media'
+        - 'delete own feature media'
+        - 'view any feature media revisions'
+        # The browser that files a feature in a feature directory.
+        - 'access media directories ui browser'
+        - 'access media_directories_editor_browser entity browser pages'
+        - 'access media_directories_modal entity browser pages'
+        - 'access media_directories_overview entity browser pages'
+        # The steps of the automated testing workflow this role takes. The
+        # permissions carry the first names of the steps: back_to_draft
+        # sends back to Draft, create_new_task moves to To Do, to_do moves
+        # to In Progress, in_progress moves to Implemented and implemented
+        # publishes.
+        - 'use automated_testing transition back_to_draft'
+        - 'use automated_testing transition create_new_task'
+        # The administration screens, in the administration theme.
+        - 'view the administration theme'

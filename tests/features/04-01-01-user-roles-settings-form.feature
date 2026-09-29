@@ -10,7 +10,7 @@ Feature: The Cucumber User Roles settings form
 
   Scenario: The settings page loads with the title from the user roles asset
     When I navigate to "/admin/config/development/cucumber-user-roles/settings"
-    Then "h1.page-title" should have text "User Roles"
+    Then "h1" should have text "User Roles"
      And I should see "Install user roles that have separate permissions based on the role rank"
      And "#edit-user-roles" should be visible
      And "#edit-continue" should be attached

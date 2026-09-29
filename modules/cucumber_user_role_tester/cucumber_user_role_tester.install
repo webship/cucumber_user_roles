@@ -7,6 +7,7 @@
 
 use Drupal\Core\Recipe\Recipe;
 use Drupal\Core\Recipe\RecipeRunner;
+use Drupal\cucumber_user_roles\UserRolePermissions;
 use Drupal\cucumber_user_roles\UserRoleRedirect;
 
 /**
@@ -37,4 +38,29 @@ function cucumber_user_role_tester_uninstall() {
 
   UserRoleRedirect::remove('tester');
 
+}
+
+/**
+ * Implements hook_update_dependencies().
+ */
+function cucumber_user_role_tester_update_dependencies() {
+  // The way back to Draft is a step Cucumber Core adds to the workflow.
+  $dependencies['cucumber_user_role_tester'][12001] = [
+    'cucumber_core' => 12002,
+  ];
+
+  return $dependencies;
+}
+
+/**
+ * Let the Tester role write features and take its steps of the workflow.
+ */
+function cucumber_user_role_tester_update_12001() {
+  $granted = UserRolePermissions::grantFromRecipe('tester', __DIR__ . '/recipes/default');
+
+  return \Drupal::translation()->formatPlural(
+    count($granted),
+    'The Tester role got one permission.',
+    'The Tester role got @count permissions.',
+  );
 }

@@ -1,5 +1,5 @@
 cucumber_user_roles.settings:
-  type: mapping
+  type: config_object
   label: Settings
   mapping:
     tester:

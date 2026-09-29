@@ -7,6 +7,7 @@
 
 use Drupal\Core\Recipe\Recipe;
 use Drupal\Core\Recipe\RecipeRunner;
+use Drupal\cucumber_user_roles\UserRolePermissions;
 use Drupal\cucumber_user_roles\UserRoleRedirect;
 
 /**
@@ -37,4 +38,29 @@ function cucumber_user_role_analyst_uninstall() {
 
   UserRoleRedirect::remove('analyst');
 
+}
+
+/**
+ * Implements hook_update_dependencies().
+ */
+function cucumber_user_role_analyst_update_dependencies() {
+  // The way back to Draft is a step Cucumber Core adds to the workflow.
+  $dependencies['cucumber_user_role_analyst'][12001] = [
+    'cucumber_core' => 12002,
+  ];
+
+  return $dependencies;
+}
+
+/**
+ * Let the Analyst role write features and take its steps of the workflow.
+ */
+function cucumber_user_role_analyst_update_12001() {
+  $granted = UserRolePermissions::grantFromRecipe('analyst', __DIR__ . '/recipes/default');
+
+  return \Drupal::translation()->formatPlural(
+    count($granted),
+    'The Analyst role got one permission.',
+    'The Analyst role got @count permissions.',
+  );
 }

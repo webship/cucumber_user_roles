@@ -40,10 +40,22 @@ permissions within the product testing workflow.
   | `cucumber_user_role_designer` | Designer | Turn research findings into design directions and evaluate new system concepts. |
   | `cucumber_user_role_product_owner` | Product Owner | Manage and prioritise the product backlog, and oversee all stages of product creation. |
 
-- Every role gets `access content`, `access features page`, and
-  `can view <role>_dashboard dashboard`. Tester, Coordinator, and Product
-  Owner additionally get `create feature media` and
-  `edit any feature media`.
+- Every role gets `access content`, `access features page`,
+  `can view <role>_dashboard dashboard` and the use of the Gherkin text
+  format. What a role may do with a feature follows its work:
+
+  | Role | Features | Steps of the automated testing workflow |
+  | --- | --- | --- |
+  | Tester | Creates, changes any | To Do, In Progress, Implemented, back to Draft |
+  | Developer | Changes any | To Do, In Progress, Implemented |
+  | Analyst | Creates, changes its own | To Do, back to Draft |
+  | Designer | Creates, changes its own | To Do, back to Draft |
+  | Coordinator | Creates, changes any | Every step, Publish included |
+  | Product Owner | Creates, changes any | Every step, Publish included |
+
+  The Coordinator also keeps the feature directories and sees the team.
+  No role gets a permission that administers the site. The permissions
+  are listed in the default recipe of each sub-module.
 
 
 ## Requirements

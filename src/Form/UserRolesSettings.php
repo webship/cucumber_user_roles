@@ -2,11 +2,48 @@
 
 namespace Drupal\cucumber_user_roles\Form;
 
-use Symfony\Component\Yaml\Yaml;
+use Drupal\Component\Serialization\Yaml;
+use Drupal\Core\Extension\ModuleExtensionList;
+use Drupal\Core\Extension\ModuleInstallerInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
+/**
+ * Installs the user roles of Cucumber.
+ */
 class UserRolesSettings extends ConfigFormBase {
+
+  /**
+   * The list of modules.
+   */
+  protected ModuleExtensionList $moduleList;
+
+  /**
+   * The module installer.
+   */
+  protected ModuleInstallerInterface $moduleInstaller;
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    $instance = parent::create($container);
+    $instance->moduleList = $container->get('extension.list.module');
+    $instance->moduleInstaller = $container->get('module_installer');
+    return $instance;
+  }
+
+  /**
+   * Reads the user roles this module offers.
+   *
+   * @return array
+   *   The content of user_roles.yml, or an empty array without the file.
+   */
+  protected function userRoles(): array {
+    $file = $this->moduleList->getPath('cucumber_user_roles') . '/src/Assets/user_roles/user_roles.yml';
+    return file_exists($file) ? (array) Yaml::decode((string) file_get_contents($file)) : [];
+  }
 
   /**
    * {@inheritdoc}
@@ -22,16 +59,15 @@ class UserRolesSettings extends ConfigFormBase {
     return ['cucumber_user_roles.settings'];
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
     $config = $this->config('cucumber_user_roles.settings');
+    $user_roles = $this->userRoles();
 
-    $module_path = \Drupal::service('module_handler')->getModule('cucumber_user_roles')->getPath();
-    $user_roles_file = $module_path . '/src/Assets/user_roles/user_roles.yml';
-
-    if (file_exists($user_roles_file)) {
-      $user_roles_content = file_get_contents($user_roles_file);
-      $user_roles = (array) Yaml::parse($user_roles_content);
+    if ($user_roles) {
 
       $form['#title'] = $this->t($user_roles['user_roles']['display_name']);
       $form['description'] = [
@@ -80,20 +116,14 @@ class UserRolesSettings extends ConfigFormBase {
 
     $config = $this->config('cucumber_user_roles.settings');
 
-    $module_path = \Drupal::service('module_handler')->getModule('cucumber_user_roles')->getPath();
-    $user_roles_file = $module_path . '/src/Assets/user_roles/user_roles.yml';
-
-    $user_roles_content = file_get_contents($user_roles_file);
-    $user_roles = (array) Yaml::parse($user_roles_content);
-
-    $user_roles_options = $user_roles['user_roles']['options'];
+    $user_roles = $this->userRoles();
+    $user_roles_options = $user_roles['user_roles']['options'] ?? [];
 
     foreach ($user_roles_options as $user_roles_key => $user_roles_info) {
 
       if ($user_roles_key != "admin" && $form_state->getValue($user_roles_key) == 1 && (bool) $config->get($user_roles_key) == FALSE) {
 
-        $installer = \Drupal::service('module_installer');
-        $installer->install([$user_roles_info['source_config']]);
+        $this->moduleInstaller->install([$user_roles_info['source_config']]);
       }
     }
 
