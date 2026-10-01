@@ -21,7 +21,7 @@ config:
     cucumber_user_role_coordinator: '*'
   actions:
     cucumber_user_roles.settings:
-      simple_config_update:
+      simpleConfigUpdate:
         coordinator: true
     user.role.admin:
       # The Cucumber distribution ships an "admin" role. On a plain Drupal
