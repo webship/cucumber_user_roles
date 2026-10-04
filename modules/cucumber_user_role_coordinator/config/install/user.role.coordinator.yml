@@ -2,16 +2,16 @@ langcode: en
 status: true
 dependencies:
   config:
-    - dashboards.dashboard.coordinator_dashboard
+    - webdashboard.webdashboard.coordinator_dashboard
   module:
-    - dashboards
+    - webdashboard
     - filter
 id: coordinator
 label: Coordinator
 weight: -4
 is_admin: false
 permissions:
-  - 'can view coordinator_dashboard dashboard'
+  - 'can view coordinator_dashboard webdashboard'
   - 'access content'
   - 'access features page'
   - 'create feature media'

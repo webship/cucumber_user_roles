@@ -26,7 +26,7 @@ permissions within the product testing workflow.
 - An `administer cucumber user roles settings` permission that guards the
   settings form.
 - Six optional sub-modules, one per role. Each ships a `user.role.*`
-  config entity with its permissions, a `dashboards.dashboard.*` config
+  config entity with its permissions, a `webdashboard.webdashboard.*` config
   entity, and a default recipe that flips the role on in
   `cucumber_user_roles.settings`, points `user_redirect` at the role's
   dashboard, and grants the admin role access to that dashboard:
@@ -41,7 +41,7 @@ permissions within the product testing workflow.
   | `cucumber_user_role_product_owner` | Product Owner | Manage and prioritise the product backlog, and oversee all stages of product creation. |
 
 - Every role gets `access content`, `access features page`,
-  `can view <role>_dashboard dashboard` and the use of the Gherkin text
+  `can view <role>_dashboard webdashboard` and the use of the Gherkin text
   format. What a role may do with a feature follows its work:
 
   | Role | Features | Steps of the automated testing workflow |
@@ -87,7 +87,7 @@ its dashboard.
 
 Assign the new roles to people at `/admin/people`. A user with one of
 these roles lands on their own dashboard after logging in, for example
-`/dashboard/tester_dashboard`.
+`/webdashboard/tester_dashboard`.
 
 Sub-modules can also be installed directly when a site is built from
 code:

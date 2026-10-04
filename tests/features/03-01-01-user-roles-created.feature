@@ -19,19 +19,19 @@ Feature: The six user roles are created with their permissions
   Scenario: The Tester role may create and edit features on its dashboard
     When I navigate to "/admin/people/permissions/tester"
     Then the element "#edit-tester-access-content" with the attribute "checked" and the value "checked" should exist
-     And the element "#edit-tester-can-view-tester-dashboard-dashboard" with the attribute "checked" and the value "checked" should exist
+     And the element "#edit-tester-can-view-tester-dashboard-webdashboard" with the attribute "checked" and the value "checked" should exist
      And the element "#edit-tester-create-feature-media" with the attribute "checked" and the value "checked" should exist
      And the element "#edit-tester-edit-any-feature-media" with the attribute "checked" and the value "checked" should exist
 
   Scenario: The Developer role may view its own dashboard and change features, but not create them
     When I navigate to "/admin/people/permissions/developer"
     Then the element "#edit-developer-access-content" with the attribute "checked" and the value "checked" should exist
-     And the element "#edit-developer-can-view-developer-dashboard-dashboard" with the attribute "checked" and the value "checked" should exist
+     And the element "#edit-developer-can-view-developer-dashboard-webdashboard" with the attribute "checked" and the value "checked" should exist
      And the element "#edit-developer-edit-any-feature-media" with the attribute "checked" and the value "checked" should exist
      And the "#edit-developer-create-feature-media" checkbox should not be checked
 
   Scenario: Every role has its own dashboard
-    When I navigate to "/admin/structure/dashboards"
+    When I navigate to "/admin/structure/webdashboards"
     Then I should see "Tester Dashboard"
      And I should see "Developer Dashboard"
      And I should see "Analyst Dashboard"

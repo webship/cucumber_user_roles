@@ -2,15 +2,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - dashboards.dashboard.designer_dashboard
+    - webdashboard.webdashboard.designer_dashboard
   module:
-    - dashboards
+    - webdashboard
     - filter
 id: designer
 label: Designer
 weight: -6
 is_admin: false
 permissions:
-  - 'can view designer_dashboard dashboard'
+  - 'can view designer_dashboard webdashboard'
   - 'access content'
   - 'access features page'

@@ -54,7 +54,7 @@ Feature: The other roles take their own steps of the workflow
 
   Scenario: A member without a role has the dashboard and the way out
     Given I am a logged in user with the "Authenticated user" user
-    Then the path should be "/dashboard/default_dashboard"
+    Then the path should be "/webdashboard/default_dashboard"
      And I should see "Log out"
     When I navigate to "/features"
     Then I should see "Access denied"

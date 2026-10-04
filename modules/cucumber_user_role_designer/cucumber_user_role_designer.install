@@ -27,7 +27,7 @@ function cucumber_user_role_designer_install($is_syncing) {
   // makes it unusable from a config action on a site with assertions enabled.
   // Setting them is idempotent, so it runs on both install paths.
   // @see \Drupal\cucumber_user_roles\UserRoleRedirect
-  UserRoleRedirect::set('designer', '/dashboard/designer_dashboard', '/user/login');
+  UserRoleRedirect::set('designer', '/webdashboard/designer_dashboard', '/user/login');
 
 }
 

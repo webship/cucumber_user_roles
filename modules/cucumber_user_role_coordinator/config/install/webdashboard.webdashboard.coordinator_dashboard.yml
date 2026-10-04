@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - display_builder.profile.default
+  module:
+    - webdashboard
+id: coordinator_dashboard
+admin_label: 'Coordinator Dashboard'
+category: ''
+frontend: false
+weight: 0
+profile: default
+sources:
+  -
+    node_id: coordinator_account
+    source_id: block
+    source:
+      plugin_id: 'webdashboard_item:account'
+      'webdashboard_item:account':
+        label: 'Show current user'
+        label_display: visible
+        view_mode: default
