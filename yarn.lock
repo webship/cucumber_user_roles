@@ -1237,11 +1237,11 @@ __metadata:
   linkType: hard
 
 "@webship-js/drupal-core-steps@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "@webship-js/drupal-core-steps@npm:2.1.0"
+  version: 2.1.1
+  resolution: "@webship-js/drupal-core-steps@npm:2.1.1"
   peerDependencies:
     webship-js: ^2.0.6
-  checksum: 10c0/67fc3abc81e03d05d22ba65ea17b7e9da216e9f62c1361f1c0ebaad007ec2409cb4ae2c0c784b0bb9cdb2aaeff94b829ec12682cecb1b52f1f5a9febc2726015
+  checksum: 10c0/a70c2bbf87fef9aa8a0d06c10030f14c9f018a34019d7a3b055296090beadc61e7ed781767c03744d4134b2b0e27177581405033139133ae5f85ee4a1206174a
   languageName: node
   linkType: hard
 
