@@ -9,11 +9,17 @@ include:
 # Default build: Drupal 11 on PHP 8.4. Drupal 12 and the newest PHP run as
 # opt-in variant jobs, allowed to fail, until they become the default.
 variables:
-  # No yarn.lock is committed; Yarn 4 defaults to immutable installs on CI and would refuse to write one.
+  # Yarn 4 makes installs immutable on CI; let a job update yarn.lock instead of failing when it is behind package.json.
   YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
   _TARGET_PHP: "8.4"
   OPT_IN_TEST_NEXT_MAJOR: "1"
   OPT_IN_TEST_MAX_PHP: "1"
+
+.composer-base:
+  variables:
+    # Drupal core's own Yarn 4.9.1 reads the project .yarnrc.yml too and rejects its newer npmMinimalAgeGate setting.
+    YARN_RC_FILENAME: .yarnrc.core.yml
+    YARN_NODE_LINKER: node-modules
 
 cspell:
   stage: validate
