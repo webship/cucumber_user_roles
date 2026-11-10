@@ -9,13 +9,15 @@ include:
 # Default build: Drupal 11 on PHP 8.4. Drupal 12 and the newest PHP run as
 # opt-in variant jobs, allowed to fail, until they become the default.
 variables:
+  # No yarn.lock is committed; Yarn 4 defaults to immutable installs on CI and would refuse to write one.
+  YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
   _TARGET_PHP: "8.4"
   OPT_IN_TEST_NEXT_MAJOR: "1"
   OPT_IN_TEST_MAX_PHP: "1"
 
 cspell:
   stage: validate
-  image: node:20
+  image: node:24
   before_script:
     - npm install -g cspell
   script:
@@ -35,7 +37,7 @@ cspell:
 # The paired .eslintignore excludes vendor/, .yarn/, web/ and node_modules/ so
 # `eslint .` only lints real module source.
 .lint-yarn:
-  image: node:20
+  image: node:24
   dependencies: []
   variables:
     YARN_ENABLE_GLOBAL_CACHE: "false"
@@ -149,6 +151,7 @@ stylelint:
 webship-js-test:
   extends: .drupal-node-base
   script:
+    - ./node_modules/.bin/cucumber-js --config cucumber.js --dry-run
     - ./node_modules/.bin/cucumber-js --config cucumber.js --tags "not @wip"
   artifacts:
     when: always
