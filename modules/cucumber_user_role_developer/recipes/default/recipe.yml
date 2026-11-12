@@ -31,7 +31,7 @@ config:
         label: Admin
         is_admin: false
       grantPermissions:
-        - 'can view developer_dashboard dashboard'
+        - 'can view developer_dashboard webdashboard'
     user.role.developer:
       # A developer implements the features other people wrote: the role edits
       # a feature and moves it to In Progress and to Implemented, and does not

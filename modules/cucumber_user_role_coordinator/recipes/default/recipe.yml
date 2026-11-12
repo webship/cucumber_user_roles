@@ -31,7 +31,7 @@ config:
         label: Admin
         is_admin: false
       grantPermissions:
-        - 'can view coordinator_dashboard dashboard'
+        - 'can view coordinator_dashboard webdashboard'
     user.role.coordinator:
       # A coordinator distributes the work and follows it: the role moves a
       # feature through every step of the workflow, sees the drafts of the

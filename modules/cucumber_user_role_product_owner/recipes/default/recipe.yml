@@ -31,7 +31,7 @@ config:
         label: Admin
         is_admin: false
       grantPermissions:
-        - 'can view product_owner_dashboard dashboard'
+        - 'can view product_owner_dashboard webdashboard'
     user.role.product_owner:
       # A product owner decides what is done: the role moves a feature through
       # every step of the workflow, publishing included, and sees the drafts

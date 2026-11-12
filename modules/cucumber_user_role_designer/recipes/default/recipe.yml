@@ -31,7 +31,7 @@ config:
         label: Admin
         is_admin: false
       grantPermissions:
-        - 'can view designer_dashboard dashboard'
+        - 'can view designer_dashboard webdashboard'
     user.role.designer:
       # A designer describes new ideas as features: the role creates a
       # feature, edits its own ones and moves them between Draft and To Do.

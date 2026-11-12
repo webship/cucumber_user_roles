@@ -38,3 +38,12 @@ Feature: The six user roles are created with their permissions
      And I should see "Coordinator Dashboard"
      And I should see "Designer Dashboard"
      And I should see "Product Owner Dashboard"
+
+  Scenario: The Admin role may view the dashboard of every role
+    When I navigate to "/admin/people/permissions/admin"
+    Then the element "#edit-admin-can-view-tester-dashboard-webdashboard" with the attribute "checked" and the value "checked" should exist
+     And the element "#edit-admin-can-view-developer-dashboard-webdashboard" with the attribute "checked" and the value "checked" should exist
+     And the element "#edit-admin-can-view-analyst-dashboard-webdashboard" with the attribute "checked" and the value "checked" should exist
+     And the element "#edit-admin-can-view-coordinator-dashboard-webdashboard" with the attribute "checked" and the value "checked" should exist
+     And the element "#edit-admin-can-view-designer-dashboard-webdashboard" with the attribute "checked" and the value "checked" should exist
+     And the element "#edit-admin-can-view-product-owner-dashboard-webdashboard" with the attribute "checked" and the value "checked" should exist

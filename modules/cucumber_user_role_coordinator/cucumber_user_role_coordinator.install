@@ -64,3 +64,16 @@ function cucumber_user_role_coordinator_update_12001() {
     'The Coordinator role got @count permissions.',
   );
 }
+
+/**
+ * Let the Admin role view the Coordinator dashboard.
+ */
+function cucumber_user_role_coordinator_update_12002() {
+  // The recipe granted a permission of the Dashboards module, which Drupal
+  // dropped: the dashboards of the roles are Web Dashboard ones.
+  $granted = UserRolePermissions::grantFromRecipe('admin', __DIR__ . '/recipes/default');
+
+  return $granted
+    ? t('The Admin role may view the Coordinator dashboard.')
+    : t('The Admin role was left as it is.');
+}

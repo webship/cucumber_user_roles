@@ -31,7 +31,7 @@ config:
         label: Admin
         is_admin: false
       grantPermissions:
-        - 'can view tester_dashboard dashboard'
+        - 'can view tester_dashboard webdashboard'
     user.role.tester:
       # A tester writes features, files them in a feature directory and moves
       # them up to Implemented. Publishing a feature is left to the people who

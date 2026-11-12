@@ -31,7 +31,7 @@ config:
         label: Admin
         is_admin: false
       grantPermissions:
-        - 'can view analyst_dashboard dashboard'
+        - 'can view analyst_dashboard webdashboard'
     user.role.analyst:
       # An analyst writes features down and hands them over: the role creates
       # a feature, edits its own ones and moves them between Draft and To Do.
