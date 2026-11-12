@@ -1,6 +1,9 @@
 langcode: en
 status: true
 dependencies:
+  enforced:
+    module:
+      - cucumber_user_role_analyst
   config:
     - webdashboard.webdashboard.analyst_dashboard
   module:

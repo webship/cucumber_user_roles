@@ -1,6 +1,9 @@
 langcode: en
 status: true
 dependencies:
+  enforced:
+    module:
+      - cucumber_user_role_coordinator
   config:
     - webdashboard.webdashboard.coordinator_dashboard
   module:

@@ -1,6 +1,9 @@
 langcode: en
 status: true
 dependencies:
+  enforced:
+    module:
+      - cucumber_user_role_product_owner
   config:
     - webdashboard.webdashboard.product_owner_dashboard
   module:

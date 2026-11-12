@@ -7,6 +7,7 @@
 
 use Drupal\Core\Recipe\Recipe;
 use Drupal\Core\Recipe\RecipeRunner;
+use Drupal\cucumber_user_roles\UserRoleConfig;
 use Drupal\cucumber_user_roles\UserRolePermissions;
 use Drupal\cucumber_user_roles\UserRoleRedirect;
 
@@ -34,9 +35,15 @@ function cucumber_user_role_tester_install($is_syncing) {
 /**
  * Implements hook_uninstall().
  */
-function cucumber_user_role_tester_uninstall() {
+function cucumber_user_role_tester_uninstall($is_syncing) {
 
   UserRoleRedirect::remove('tester');
+
+  // The role and its dashboard go with the module: they depend on it. A
+  // configuration import brings its own settings.
+  if (!$is_syncing) {
+    UserRoleConfig::turnOff('tester');
+  }
 
 }
 
@@ -76,4 +83,17 @@ function cucumber_user_role_tester_update_12002() {
   return $granted
     ? t('The Admin role may view the Tester dashboard.')
     : t('The Admin role was left as it is.');
+}
+
+/**
+ * Remove the Tester role and its dashboard when the module is uninstalled.
+ */
+function cucumber_user_role_tester_update_12003() {
+  // Without it the role and its dashboard stay behind, and the module cannot
+  // be installed again.
+  $changed = UserRoleConfig::enforceModule('tester');
+
+  return $changed
+    ? t('The Tester role and its dashboard now depend on their module.')
+    : t('The Tester role and its dashboard were left as they are.');
 }

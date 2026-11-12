@@ -95,3 +95,10 @@ code:
 ```
 drush en cucumber_user_role_tester cucumber_user_role_developer -y
 ```
+
+Uninstalling a sub-module removes its role and its dashboard, and unticks
+the role in the settings form, so the role can be installed again:
+
+```
+drush pmu cucumber_user_role_tester -y
+```
