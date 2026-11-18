@@ -6,12 +6,12 @@ include:
       - "/includes/include.drupalci.variables.yml"
       - "/includes/include.drupalci.workflows.yml"
 
-# Default build: Drupal 11 on PHP 8.4. Drupal 12 and the newest PHP run as
+# Default build: Drupal 11 on PHP 8.5. Drupal 12 and the newest PHP run as
 # opt-in variant jobs, allowed to fail, until they become the default.
 variables:
   # Yarn 4 makes installs immutable on CI; let a job update yarn.lock instead of failing when it is behind package.json.
   YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
-  _TARGET_PHP: "8.4"
+  _TARGET_PHP: "8.5"
   OPT_IN_TEST_NEXT_MAJOR: "1"
   OPT_IN_TEST_MAX_PHP: "1"
 
